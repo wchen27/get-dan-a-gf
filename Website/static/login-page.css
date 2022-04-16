@@ -1,0 +1,12 @@
+body {
+    margin:0;
+    color: rgb(35, 34, 34);
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: rgb(160, 162, 211);
+}
+.styled {
+    background-color: #92a8d1;
+    font-family: sans-serif;
+    font-size: 20px;
+}
