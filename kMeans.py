@@ -1,5 +1,6 @@
 import random
 from math import log
+import csv
 
 
 def get_error(mean, point):
