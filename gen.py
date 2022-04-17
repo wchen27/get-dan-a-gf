@@ -43,17 +43,20 @@ def largest(board):
 
 def moveUp(board):
     add = 0
+    #make copy of board
     old = board.copy()
+    #for each column in board move each piece up through all 0's and combine if same value
     for x in range(4):
         currCol = board[x::4]
-        for i in range(3):
-            if currCol[i] == 0:
-                currCol[i] = currCol[i+1]
-                currCol[i+1] = 0
-            if currCol[i] == currCol[i+1]:
-                currCol[i] *= 2
-                currCol[i+1] = 0
-                add += currCol[i]
+        for i in range(3, 1, -1):
+            while currCol[i - 1] == 0 or currCol[i - 1] == currCol[i]:
+                if currCol[i - 1] == 0:
+                    currCol[i - 1] = currCol[i]
+                    currCol[i] = 0
+                else:
+                    currCol[i - 1] *= 2
+                    currCol[i] = 0
+                    add += currCol[i - 1]
     if board != old:
         board = spawn(board,1)
     return (board, add)
