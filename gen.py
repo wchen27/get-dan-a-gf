@@ -45,7 +45,7 @@ def moveUp(board):
     add = 0
     old = board.copy()
     for x in range(16):
-        
+        x= 0
     if board != old:
         board = spawn(board,1)
     return (board, add)
