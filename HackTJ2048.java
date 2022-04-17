@@ -1,4 +1,4 @@
-import java.util.*;
+
 
 public class HackTJ2048{
 
@@ -80,75 +80,75 @@ public class HackTJ2048{
       return true;
    }
    
-   public Object moveLeft(int[][] arr){
-      int add = 0;
-      for(int r=0;r<arr.length;r++) {
-         for(int c=1;c<arr[r].length;c++) {
-            if(arr[r][c-1]==0){
-               arr[r][c-1]=arr[r][c];
-               arr[r][c]=0;
-            }
-            if(arr[r][c]==arr[r][c-1]) {
-               arr[r][c-1]*=2;
-               arr[r][c]=0;
-               add+=arr[r][c-1];
-            }     
-         }
-      }
-      return Object(board,add);
-   }
-   public Object moveRight(int[][] arr){
-      for(int r=0;r<arr.length;r++) {
-         int add = 0;
-         for(int c=0;c<arr[r].length-1;c++) {
-            if(arr[r][c+1]==0){
-               arr[r][c+1]=arr[r][c];
-               arr[r][c]=0;
-            }
-            if(arr[r][c]==arr[r][c+1]) {
-               arr[r][c+1]*=2;
-               arr[r][c]=0;
-               add+=arr[r][c+1];
-            }      
-         }
-      }
-      return Object(board,add);
-   }
-   public Object moveUp(int[][] arr){
-      int add = 0;
-      for(int c=0;c<arr[0].length;c++) {
-         for(int r=1;c<arr.length;r++) {
-            if(arr[r-1][c]==0){
-               arr[r-1][c]=arr[r][c];
-               arr[r][c]=0;
-            }
-            if(arr[r-1][c]==arr[r][c]) {
-               arr[r-1][c]*=2;
-               arr[r][c]=0;
-               add+=arr[r-1][c];
-            }        
-         }
-      }
-      return Object(board,add);
-   }
+   // public Object moveLeft(int[][] arr){
+   //    int add = 0;
+   //    for(int r=0;r<arr.length;r++) {
+   //       for(int c=1;c<arr[r].length;c++) {
+   //          if(arr[r][c-1]==0){
+   //             arr[r][c-1]=arr[r][c];
+   //             arr[r][c]=0;
+   //          }
+   //          if(arr[r][c]==arr[r][c-1]) {
+   //             arr[r][c-1]*=2;
+   //             arr[r][c]=0;
+   //             add+=arr[r][c-1];
+   //          }     
+   //       }
+   //    }
+   //    return Object(board,add);
+   // }
+   // public Object moveRight(int[][] arr){
+   //    for(int r=0;r<arr.length;r++) {
+   //       int add = 0;
+   //       for(int c=0;c<arr[r].length-1;c++) {
+   //          if(arr[r][c+1]==0){
+   //             arr[r][c+1]=arr[r][c];
+   //             arr[r][c]=0;
+   //          }
+   //          if(arr[r][c]==arr[r][c+1]) {
+   //             arr[r][c+1]*=2;
+   //             arr[r][c]=0;
+   //             add+=arr[r][c+1];
+   //          }      
+   //       }
+   //    }
+   //    return Object(board,add);
+   // }
+   // public Object moveUp(int[][] arr){
+   //    int add = 0;
+   //    for(int c=0;c<arr[0].length;c++) {
+   //       for(int r=1;c<arr.length;r++) {
+   //          if(arr[r-1][c]==0){
+   //             arr[r-1][c]=arr[r][c];
+   //             arr[r][c]=0;
+   //          }
+   //          if(arr[r-1][c]==arr[r][c]) {
+   //             arr[r-1][c]*=2;
+   //             arr[r][c]=0;
+   //             add+=arr[r-1][c];
+   //          }        
+   //       }
+   //    }
+   //    return Object(board,add);
+   // }
 
-   public Object moveDown(int[][] arr){
-      int add = 0;
-      for(int c=0;c<arr[0].length;c++) {
-         for(int r=0;c<arr.length-1;r++) {
-            if(arr[r+1][c]==0){
-               arr[r+1][c]=arr[r][c];
-               arr[r][c]=0;
-            }
-            if(arr[r+1][c]==arr[r][c]) {
-               arr[r+1][c]*=2;
-               arr[r][c]=0;
-               add+=arr[r+1][c];
-            }    
-         }
-      }
-      return Object(board,add);
-   }
+   // public Object moveDown(int[][] arr){
+   //    int add = 0;
+   //    for(int c=0;c<arr[0].length;c++) {
+   //       for(int r=0;c<arr.length-1;r++) {
+   //          if(arr[r+1][c]==0){
+   //             arr[r+1][c]=arr[r][c];
+   //             arr[r][c]=0;
+   //          }
+   //          if(arr[r+1][c]==arr[r][c]) {
+   //             arr[r+1][c]*=2;
+   //             arr[r][c]=0;
+   //             add+=arr[r+1][c];
+   //          }    
+   //       }
+   //    }
+   //    return Object(board,add);
+   // }
    
    public void printGame(int[][] arr) {
       for(int r=0;r<arr.length;r++){

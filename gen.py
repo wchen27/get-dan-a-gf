@@ -252,7 +252,7 @@ def getNextGen(genDict):
             nextGen.append(tuple(child))
     return nextGen
 
-# gen = []
+gen = []
 # g = 0
 # gen = getPopulation(POPULATION)
 # while True:
