@@ -46,6 +46,7 @@ def moveUp(board):
     #make copy of board
     old = board.copy()
     #for each column in board move each piece up through all 0's and combine if same value
+    cols = []
     for x in range(4):
         currCol = board[x::4]
         for i in range(3, 1, -1):
@@ -57,6 +58,12 @@ def moveUp(board):
                     currCol[i - 1] *= 2
                     currCol[i] = 0
                     add += currCol[i - 1]
+        cols.append(currCol)
+    #transpose and combine columns to get rows in cols
+    rows = []
+    for i in range(4):
+        rows.append([cols[j][i] for j in range(4)])
+    board = rows
     if board != old:
         board = spawn(board,1)
     return (board, add)
