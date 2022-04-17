@@ -44,8 +44,16 @@ def largest(board):
 def moveUp(board):
     add = 0
     old = board.copy()
-    for x in range(16):
-        x= 0
+    for x in range(4):
+        currCol = board[x::4]
+        for i in range(3):
+            if currCol[i] == 0:
+                currCol[i] = currCol[i+1]
+                currCol[i+1] = 0
+            if currCol[i] == currCol[i+1]:
+                currCol[i] *= 2
+                currCol[i+1] = 0
+                add += currCol[i]
     if board != old:
         board = spawn(board,1)
     return (board, add)
@@ -53,15 +61,16 @@ def moveUp(board):
 def moveDown(board):
     add = 0
     old = board.copy()
-    for x in range(16):
-        if x+4 <= 15:
-            if board[x+4] == 0:
-                board[x+4] = board[x]
-                board[x] = 0
-            if board[x+4] == board[x]:
-                board[x+4] *= 2
-                board[x] = 0
-                add += board[x+4]
+    for x in range(4):
+        currCol = board[x::4]
+        for i in range(3):
+            if currCol[i] == 0:
+                currCol[i] = currCol[i+1]
+                currCol[i+1] = 0
+            if currCol[i] == currCol[i+1]:
+                currCol[i] *= 2
+                currCol[i+1] = 0
+                add += currCol[i]
     if board != old:
         board = spawn(board,1)
     return (board, add)
@@ -69,15 +78,16 @@ def moveDown(board):
 def moveRight(board):
     add = 0
     old = board.copy()
-    for x in range(16):
-        if x%4!=3:
-            if board[x+1] == 0:
-                board[x+1] = board[x]
-                board[x] = 0
-            if board[x+1] == board[x]:
-                board[x+1] *= 2
-                board[x] = 0
-                add += board[x+1]
+    for x in range(4):
+        currRow = board[x * 4:(x + 1) * 4]
+        for i in range(3):
+            if currRow[i] == 0:
+                currRow[i] = currRow[i+1]
+                currRow[i+1] = 0
+            if currRow[i] == currRow[i+1]:
+                currRow[i] *= 2
+                currRow[i+1] = 0
+                add += currRow[i]
     if board != old:
         board = spawn(board,1)
     return (board, add)
@@ -86,15 +96,16 @@ def moveRight(board):
 def moveLeft(board):        
     add = 0
     old = board.copy()
-    for x in range(16):
-        if x-1 >= 0:
-            if board[x-1] == 0:
-                board[x-1] = board[x]
-                board[x] = 0
-            if board[x-1] == board[x]:
-                board[x-1] *= 2
-                board[x] = 0
-                add += board[x-1]
+    for x in range(4):
+        currRow = board[x * 4:(x + 1) * 4]
+        for i in range(3):
+            if currRow[i] == 0:
+                currRow[i] = currRow[i+1]
+                currRow[i+1] = 0
+            if currRow[i] == currRow[i+1]:
+                currRow[i] *= 2
+                currRow[i+1] = 0
+                add += currRow[i]
     if board != old:
         board = spawn(board,1)
     return (board, add)
